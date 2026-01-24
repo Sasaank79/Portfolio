@@ -28,7 +28,7 @@ import {
 
 const PROFILE = {
     name: "Surya Sasaank Yanamandra",
-    tagline: "Backend Engineer | ML Systems | Performance Optimization",
+    tagline: "Backend Developer | ML Engineer | AI Enthusiast | Software Engineer",
     intro: "Computer Science graduate building efficient, scalable software. From 14 FPS real-time computer vision to REST APIs serving 56 billion entries—I focus on performance and maintainability.",
     email: "ysuryasasaank@gmail.com",
     github: "https://github.com/Sasaank79",
@@ -225,11 +225,11 @@ function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
                     <a href="#hero" className="group flex items-center gap-2">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center font-bold text-black text-lg">
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center font-bold text-white text-lg">
                             S
                         </div>
                         <span className="font-semibold text-lg text-white hidden sm:block">
-                            Surya<span className="text-emerald-400">.dev</span>
+                            Surya<span className="text-violet-400">.dev</span>
                         </span>
                     </a>
 
@@ -248,7 +248,7 @@ function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
                                 {activeSection === item.id && (
                                     <motion.div
                                         layoutId="activeNav"
-                                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-emerald-400 rounded-full"
+                                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-violet-400 rounded-full"
                                     />
                                 )}
                             </a>
@@ -259,7 +259,7 @@ function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
                             rel="noopener noreferrer"
                             className="ml-4 px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-sm font-medium transition-all flex items-center gap-2 group"
                         >
-                            <Download size={16} className="text-emerald-400" />
+                            <Download size={16} className="text-violet-400" />
                             Resume
                         </a>
                     </div>
@@ -323,10 +323,10 @@ function HeroSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20"
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20"
                         >
-                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                            <span className="text-emerald-400 text-sm font-medium">Open to Opportunities</span>
+                            <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
+                            <span className="text-violet-400 text-sm font-medium">Open to Opportunities</span>
                         </motion.div>
 
                         {/* Name */}
@@ -334,7 +334,7 @@ function HeroSection() {
                             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
                                 <span className="text-white">{PROFILE.name.split(' ')[0]}</span>
                                 <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400">
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400">
                                     {PROFILE.name.split(' ').slice(1).join(' ')}
                                 </span>
                             </h1>
@@ -352,7 +352,7 @@ function HeroSection() {
                         <div className="flex flex-wrap gap-4 pt-4">
                             <a
                                 href="#projects"
-                                className="group px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 rounded-xl font-semibold text-black transition-all shadow-lg shadow-emerald-500/25 flex items-center gap-2"
+                                className="group px-8 py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 rounded-xl font-semibold text-white transition-all shadow-lg shadow-violet-500/25 flex items-center gap-2"
                             >
                                 View My Work
                                 <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -374,21 +374,37 @@ function HeroSection() {
                         className="hidden lg:block"
                     >
                         <div className="relative">
-                            {/* Floating Tech Cards */}
+                            {/* Floating Tech Stack Icons */}
                             <motion.div
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -top-4 -left-4 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-lg backdrop-blur-sm"
+                                className="absolute -top-6 -left-6 w-14 h-14 bg-[#12121a] border border-white/10 rounded-xl flex items-center justify-center shadow-lg"
                             >
-                                <span className="text-emerald-400 font-mono text-sm">14 FPS on CPU</span>
+                                <span className="text-2xl">🐍</span>
                             </motion.div>
 
                             <motion.div
                                 animate={{ y: [0, 10, 0] }}
                                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -bottom-4 -right-4 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-lg backdrop-blur-sm"
+                                className="absolute -top-2 -right-6 w-14 h-14 bg-[#12121a] border border-white/10 rounded-xl flex items-center justify-center shadow-lg"
                             >
-                                <span className="text-blue-400 font-mono text-sm">56B URL Capacity</span>
+                                <span className="text-2xl">☕</span>
+                            </motion.div>
+
+                            <motion.div
+                                animate={{ y: [0, -8, 0] }}
+                                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -bottom-6 -left-4 w-14 h-14 bg-[#12121a] border border-white/10 rounded-xl flex items-center justify-center shadow-lg"
+                            >
+                                <span className="text-2xl">☁️</span>
+                            </motion.div>
+
+                            <motion.div
+                                animate={{ y: [0, 8, 0] }}
+                                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute -bottom-4 -right-6 w-14 h-14 bg-[#12121a] border border-white/10 rounded-xl flex items-center justify-center shadow-lg"
+                            >
+                                <span className="text-2xl">🐳</span>
                             </motion.div>
 
                             {/* Terminal Window */}
@@ -416,14 +432,14 @@ function HeroSection() {
                                             <span className="text-gray-500">.</span>
                                             <span className="text-white">stack</span>
                                             <span className="text-gray-500"> = </span>
-                                            <span className="text-emerald-400">["Python", "Java", "AWS"]</span>
+                                            <span className="text-violet-400">["Python", "Java", "AWS"]</span>
                                         </div>
                                         <div className="pl-4">
                                             <span className="text-gray-400">self</span>
                                             <span className="text-gray-500">.</span>
                                             <span className="text-white">focus</span>
                                             <span className="text-gray-500"> = </span>
-                                            <span className="text-emerald-400">"Performance"</span>
+                                            <span className="text-violet-400">"Performance"</span>
                                         </div>
                                         <div className="pt-2">
                                             <span className="text-purple-400">def</span>
@@ -432,7 +448,7 @@ function HeroSection() {
                                         </div>
                                         <div className="pl-4">
                                             <span className="text-purple-400">return</span>
-                                            <span className="text-emerald-400"> "Scalable Solution"</span>
+                                            <span className="text-violet-400"> "Scalable Solution"</span>
                                         </div>
                                     </div>
                                 </div>

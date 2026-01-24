@@ -14,4 +14,4 @@ npm run dev
 ```
 
 ## Live Site
-[View Portfolio](https://portfolio-sasaank79.vercel.app) *(update after deployment)*
+[View Portfolio](https://portfolio-seven-zeta-80.vercel.app/)
