@@ -21,15 +21,15 @@ import {
     X
 } from 'lucide-react';
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 // SURYA SASAANK YANAMANDRA - PORTFOLIO
 // Backend Engineer & AI Systems Developer
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 
 const PROFILE = {
     name: "Surya Sasaank Yanamandra",
     tagline: "Backend Developer | ML Engineer | AI Enthusiast | Software Engineer",
-    intro: "Computer Science graduate building efficient, scalable software. From 14 FPS real-time computer vision to REST APIs serving 56 billion entries—I focus on performance and maintainability.",
+    intro: "Computer Science graduate building efficient, scalable software. From 14 FPS real-time computer vision to REST APIs architected for 56 billion entries. I focus on performance and maintainability.",
     email: "ysuryasasaank@gmail.com",
     github: "https://github.com/Sasaank79",
     linkedin: "https://www.linkedin.com/in/surya-sasaank-yanamandra/",
@@ -126,13 +126,16 @@ const PROJECTS = [
 
 const SKILLS = {
     languages: ["Python", "Java", "SQL", "C++", "JavaScript", "TypeScript"],
-    frameworks: ["FastAPI", "Flask", "Spring Boot", "PyTorch", "OpenVINO", "React"],
-    infrastructure: ["AWS Lambda", "AWS EC2", "Docker", "Redis", "PostgreSQL", "Git", "CI/CD"]
+    backend: ["FastAPI", "Flask", "Spring Boot", "REST APIs"],
+    frontend: ["React", "HTML", "CSS", "Tailwind"],
+    mlLibraries: ["PyTorch", "OpenVINO", "OpenCV", "scikit-learn", "MediaPipe"],
+    toolsDevOps: ["Docker", "AWS Lambda", "AWS EC2", "Redis", "PostgreSQL", "Git", "CI/CD"]
 };
 
 const EXPERIENCE = {
-    title: "Salesforce Journey to Employment",
+    title: "Journey to Employment Program",
     company: "Salesforce",
+    type: "Professional Training",
     highlight: "Top 10% of 500+ candidates",
     description: "Selected top 10% (55/500+). Optimized Python/Java algorithms for time/space complexity and applied Agile methodologies in team code reviews."
 };
@@ -145,9 +148,9 @@ const EDUCATION = {
     courses: ["Machine Learning", "AI Tools", "Data Structures", "DBMS", "OOP"]
 };
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 // COMPONENTS
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 
 export default function Portfolio() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -156,7 +159,7 @@ export default function Portfolio() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ['hero', 'projects', 'skills', 'about', 'contact'];
+            const sections = ['hero', 'about', 'projects', 'skills', 'contact'];
             const scrollPosition = window.scrollY + 150;
 
             for (const section of sections) {
@@ -191,10 +194,14 @@ export default function Portfolio() {
             />
 
             <main className="relative z-10">
+                {/* Animated Background Blobs */}
+                <div className="bg-blob bg-blob-1" />
+                <div className="bg-blob bg-blob-2" />
+
                 <HeroSection />
+                <AboutSection />
                 <ProjectsSection />
                 <SkillsSection />
-                <AboutSection />
                 <ContactSection />
             </main>
 
@@ -203,15 +210,16 @@ export default function Portfolio() {
     );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 // NAVBAR
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 
 function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
     const navItems = [
+        { id: 'hero', label: 'Home' },
+        { id: 'about', label: 'About' },
         { id: 'projects', label: 'Work' },
         { id: 'skills', label: 'Skills' },
-        { id: 'about', label: 'About' },
         { id: 'contact', label: 'Contact' }
     ];
 
@@ -225,11 +233,11 @@ function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
                     <a href="#hero" className="group flex items-center gap-2">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center font-bold text-white text-lg">
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center font-bold text-black text-lg">
                             S
                         </div>
                         <span className="font-semibold text-lg text-white hidden sm:block">
-                            Surya<span className="text-violet-400">.dev</span>
+                            Surya<span className="text-emerald-400">.dev</span>
                         </span>
                     </a>
 
@@ -248,7 +256,7 @@ function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
                                 {activeSection === item.id && (
                                     <motion.div
                                         layoutId="activeNav"
-                                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-violet-400 rounded-full"
+                                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-emerald-400 rounded-full"
                                     />
                                 )}
                             </a>
@@ -259,7 +267,7 @@ function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
                             rel="noopener noreferrer"
                             className="ml-4 px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-sm font-medium transition-all flex items-center gap-2 group"
                         >
-                            <Download size={16} className="text-violet-400" />
+                            <Download size={16} className="text-emerald-400" />
                             Resume
                         </a>
                     </div>
@@ -294,6 +302,16 @@ function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
                                     {item.label}
                                 </a>
                             ))}
+                            <a
+                                href={PROFILE.resumeUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 py-2 font-medium"
+                            >
+                                <Download size={16} />
+                                Resume
+                            </a>
                         </div>
                     </motion.div>
                 )}
@@ -302,57 +320,96 @@ function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
     );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 // HERO SECTION
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 
 function HeroSection() {
+    const [displayedText, setDisplayedText] = useState('');
+    const taglineWords = PROFILE.tagline.split(' | ');
+    const fullText = taglineWords.join(' | ');
+
+    useEffect(() => {
+        let index = 0;
+        const interval = setInterval(() => {
+            if (index <= fullText.length) {
+                setDisplayedText(fullText.slice(0, index));
+                index++;
+            } else {
+                clearInterval(interval);
+            }
+        }, 50);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section id="hero" className="min-h-screen flex items-center pt-20">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-                <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 w-full">
+                <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left: Content */}
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
+                        initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="space-y-8"
+                        className="space-y-6 text-center lg:text-left"
                     >
-                        {/* Status Badge */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-500/10 border border-violet-500/20"
-                        >
-                            <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
-                            <span className="text-violet-400 text-sm font-medium">Open to Opportunities</span>
-                        </motion.div>
-
-                        {/* Name */}
                         <div className="space-y-4">
                             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
-                                <span className="text-white">{PROFILE.name.split(' ')[0]}</span>
+                                <motion.span
+                                    className="text-white inline-block"
+                                    initial={{ opacity: 0, filter: 'blur(10px)' }}
+                                    animate={{
+                                        opacity: 1,
+                                        filter: 'blur(0px)',
+                                        textShadow: [
+                                            '0 0 0px rgba(255,255,255,0)',
+                                            '0 0 30px rgba(16,185,129,0.5)',
+                                            '0 0 15px rgba(6,182,212,0.3)',
+                                            '0 0 0px rgba(255,255,255,0)'
+                                        ]
+                                    }}
+                                    transition={{ duration: 1.0, ease: 'easeOut' }}
+                                >
+                                    Surya Sasaank
+                                </motion.span>
                                 <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400">
-                                    {PROFILE.name.split(' ').slice(1).join(' ')}
+                                <span className="inline-flex">
+                                    {"Yanamandra".split('').map((char, i) => (
+                                        <motion.span
+                                            key={i}
+                                            className="text-emerald-400"
+                                            initial={{ opacity: 0, y: 20 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ delay: 0.8 + i * 0.06, duration: 0.4 }}
+                                        >
+                                            {char}
+                                        </motion.span>
+                                    ))}
                                 </span>
                             </h1>
-                            <p className="text-xl text-gray-400 font-medium">
-                                {PROFILE.tagline}
+                            <p className="text-xl text-gray-400 font-medium font-mono">
+                                {displayedText}<span className="animate-pulse">|</span>
                             </p>
                         </div>
 
-                        {/* Intro */}
-                        <p className="text-lg text-gray-500 leading-relaxed max-w-xl">
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                            className="text-lg text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                        >
                             {PROFILE.intro}
-                        </p>
+                        </motion.p>
 
-                        {/* CTA Buttons */}
-                        <div className="flex flex-wrap gap-4 pt-4">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 }}
+                            className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4"
+                        >
                             <a
                                 href="#projects"
-                                className="group px-8 py-4 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 rounded-xl font-semibold text-white transition-all shadow-lg shadow-violet-500/25 flex items-center gap-2"
+                                className="group px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 rounded-xl font-semibold text-black transition-all shadow-lg shadow-emerald-500/25 flex items-center gap-2"
                             >
                                 View My Work
                                 <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -363,116 +420,31 @@ function HeroSection() {
                                 <SocialButton href={PROFILE.linkedin} icon={<Linkedin size={20} />} />
                                 <SocialButton href={`mailto:${PROFILE.email}`} icon={<Mail size={20} />} />
                             </div>
-                        </div>
+                        </motion.div>
                     </motion.div>
 
-                    {/* Right: Visual */}
+                    {/* Right: Photo */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
+                        initial={{ opacity: 0, x: 30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="hidden lg:block"
+                        className="hidden lg:flex justify-center"
                     >
                         <div className="relative">
-                            {/* Floating Tech Stack Icons */}
-                            <motion.div
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -top-6 -left-6 w-14 h-14 bg-[#12121a] border border-white/10 rounded-xl flex items-center justify-center shadow-lg"
-                            >
-                                <span className="text-2xl">🐍</span>
-                            </motion.div>
-
-                            <motion.div
-                                animate={{ y: [0, 10, 0] }}
-                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -top-2 -right-6 w-14 h-14 bg-[#12121a] border border-white/10 rounded-xl flex items-center justify-center shadow-lg"
-                            >
-                                <span className="text-2xl">☕</span>
-                            </motion.div>
-
-                            <motion.div
-                                animate={{ y: [0, -8, 0] }}
-                                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -bottom-6 -left-4 w-14 h-14 bg-[#12121a] border border-white/10 rounded-xl flex items-center justify-center shadow-lg"
-                            >
-                                <span className="text-2xl">☁️</span>
-                            </motion.div>
-
-                            <motion.div
-                                animate={{ y: [0, 8, 0] }}
-                                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -bottom-4 -right-6 w-14 h-14 bg-[#12121a] border border-white/10 rounded-xl flex items-center justify-center shadow-lg"
-                            >
-                                <span className="text-2xl">🐳</span>
-                            </motion.div>
-
-                            {/* Terminal Window */}
-                            <div className="bg-[#12121a] rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
-                                <div className="bg-[#1a1a24] px-4 py-3 flex items-center gap-2 border-b border-white/5">
-                                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                                    <span className="ml-3 text-xs text-gray-500 font-mono">engineer.py</span>
-                                </div>
-                                <div className="p-6 font-mono text-sm space-y-3">
-                                    <div>
-                                        <span className="text-purple-400">class</span>
-                                        <span className="text-yellow-300"> BackendEngineer</span>
-                                        <span className="text-gray-500">:</span>
-                                    </div>
-                                    <div className="pl-4 space-y-2">
-                                        <div>
-                                            <span className="text-purple-400">def</span>
-                                            <span className="text-blue-400"> __init__</span>
-                                            <span className="text-gray-500">(self):</span>
-                                        </div>
-                                        <div className="pl-4">
-                                            <span className="text-gray-400">self</span>
-                                            <span className="text-gray-500">.</span>
-                                            <span className="text-white">stack</span>
-                                            <span className="text-gray-500"> = </span>
-                                            <span className="text-violet-400">["Python", "Java", "AWS"]</span>
-                                        </div>
-                                        <div className="pl-4">
-                                            <span className="text-gray-400">self</span>
-                                            <span className="text-gray-500">.</span>
-                                            <span className="text-white">focus</span>
-                                            <span className="text-gray-500"> = </span>
-                                            <span className="text-violet-400">"Performance"</span>
-                                        </div>
-                                        <div className="pt-2">
-                                            <span className="text-purple-400">def</span>
-                                            <span className="text-blue-400"> build</span>
-                                            <span className="text-gray-500">(self, problem):</span>
-                                        </div>
-                                        <div className="pl-4">
-                                            <span className="text-purple-400">return</span>
-                                            <span className="text-violet-400"> "Scalable Solution"</span>
-                                        </div>
-                                    </div>
+                            {/* Gradient border ring */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 rounded-full blur-sm" />
+                            <div className="relative w-72 h-72 rounded-full bg-[#12121a] p-1">
+                                <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center overflow-hidden">
+                                    <img
+                                        src="/profile.jpeg"
+                                        alt="Surya Sasaank Yanamandra"
+                                        className="w-full h-full object-cover rounded-full"
+                                    />
                                 </div>
                             </div>
                         </div>
                     </motion.div>
                 </div>
-
-                {/* Scroll Indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5 }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-                >
-                    <span className="text-xs text-gray-600 uppercase tracking-widest">Scroll</span>
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                        className="w-5 h-8 rounded-full border-2 border-gray-700 flex justify-center pt-2"
-                    >
-                        <div className="w-1 h-2 bg-gray-600 rounded-full" />
-                    </motion.div>
-                </motion.div>
             </div>
         </section>
     );
@@ -484,16 +456,16 @@ function SocialButton({ href, icon }) {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-gray-400 hover:text-white transition-all"
+            className="social-pulse p-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-gray-400 hover:text-white transition-all"
         >
             {icon}
         </a>
     );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 // PROJECTS SECTION
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 
 function ProjectsSection() {
     return (
@@ -503,15 +475,15 @@ function ProjectsSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="text-center mb-20"
                 >
                     <span className="text-emerald-400 font-mono text-sm">// Featured Work</span>
                     <h2 className="text-4xl sm:text-5xl font-bold mt-4 text-white">
-                        Production-Ready Systems
+                        Featured Projects
                     </h2>
                     <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-                        Projects focused on performance, scalability, and real-world deployment.
+                        Projects focused on performance, scalability, and real-world applications.
                     </p>
                 </motion.div>
 
@@ -541,9 +513,9 @@ function ProjectCard({ project, index }) {
         <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: index * 0.1 }}
-            className={`group relative bg-[#12121a] border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-all duration-500 ${colors.glow} hover:shadow-2xl h-full flex flex-col`}
+            className={`group relative bg-[#12121a] border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-all duration-500 ${colors.glow} hover:shadow-2xl hover:-translate-y-2 h-full flex flex-col`}
         >
             {/* Header */}
             <div className="flex justify-between items-start mb-6">
@@ -565,12 +537,19 @@ function ProjectCard({ project, index }) {
             </div>
 
             {/* Content */}
-            <div className="space-y-4">
+            <div className="space-y-4 flex-grow">
                 <div>
                     <p className={`text-xs font-mono ${colors.text} mb-1`}>{project.subtitle}</p>
-                    <h3 className="text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
-                        {project.title}
-                    </h3>
+                    <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block"
+                    >
+                        <h3 className="text-2xl font-bold text-white hover:text-emerald-400 transition-colors cursor-pointer">
+                            {project.title}
+                        </h3>
+                    </a>
                 </div>
 
                 <p className="text-gray-500 text-sm leading-relaxed">
@@ -602,16 +581,26 @@ function ProjectCard({ project, index }) {
     );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 // SKILLS SECTION
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 
 function SkillsSection() {
     const categories = [
-        { title: "Languages", items: SKILLS.languages, icon: Terminal, color: "emerald" },
-        { title: "Frameworks", items: SKILLS.frameworks, icon: Layers, color: "blue" },
-        { title: "Infrastructure", items: SKILLS.infrastructure, icon: Server, color: "violet" }
+        { title: "Languages", items: SKILLS.languages, icon: Code2, color: "emerald" },
+        { title: "Backend", items: SKILLS.backend, icon: Server, color: "blue" },
+        { title: "Frontend", items: SKILLS.frontend, icon: Layers, color: "cyan" },
+        { title: "ML/AI Libraries", items: SKILLS.mlLibraries, icon: Cpu, color: "amber" },
+        { title: "Tools & DevOps", items: SKILLS.toolsDevOps, icon: Terminal, color: "violet" }
     ];
+
+    const colorClasses = {
+        emerald: { bg: 'bg-emerald-500/10', text: 'text-emerald-400' },
+        blue: { bg: 'bg-blue-500/10', text: 'text-blue-400' },
+        cyan: { bg: 'bg-cyan-500/10', text: 'text-cyan-400' },
+        amber: { bg: 'bg-amber-500/10', text: 'text-amber-400' },
+        violet: { bg: 'bg-violet-500/10', text: 'text-violet-400' }
+    };
 
     return (
         <section id="skills" className="py-32 bg-[#0d0d12]">
@@ -619,7 +608,7 @@ function SkillsSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="text-center mb-20"
                 >
                     <span className="text-emerald-400 font-mono text-sm">// Technical Stack</span>
@@ -628,21 +617,22 @@ function SkillsSection() {
                     </h2>
                 </motion.div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 gap-6">
                     {categories.map((cat, index) => {
                         const Icon = cat.icon;
+                        const colors = colorClasses[cat.color];
                         return (
                             <motion.div
                                 key={cat.title}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: false }}
                                 transition={{ delay: index * 0.1 }}
-                                className="bg-[#12121a] border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-all"
+                                className={`bg-[#12121a] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-all ${index === 4 ? 'md:col-span-2' : ''}`}
                             >
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className={`p-2 rounded-lg bg-${cat.color}-500/10`}>
-                                        <Icon size={20} className={`text-${cat.color}-400`} />
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className={`p-2 rounded-lg ${colors.bg}`}>
+                                        <Icon size={20} className={colors.text} />
                                     </div>
                                     <h3 className="text-lg font-semibold text-white">{cat.title}</h3>
                                 </div>
@@ -650,7 +640,7 @@ function SkillsSection() {
                                     {cat.items.map((skill) => (
                                         <span
                                             key={skill}
-                                            className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/5 text-gray-300 text-sm rounded-lg transition-colors cursor-default"
+                                            className="skill-shimmer px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/5 text-gray-300 text-sm rounded-lg transition-colors cursor-default"
                                         >
                                             {skill}
                                         </span>
@@ -665,9 +655,9 @@ function SkillsSection() {
     );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 // ABOUT SECTION
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 
 function AboutSection() {
     return (
@@ -676,13 +666,20 @@ function AboutSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="text-center mb-16"
                 >
                     <span className="text-emerald-400 font-mono text-sm">// Background</span>
                     <h2 className="text-4xl sm:text-5xl font-bold mt-4 text-white">
                         About Me
                     </h2>
+                    <p className="text-gray-400 mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
+                        I am a Computer Science graduate passionate about building software that performs well at scale.
+                        My experience spans backend development with Java and Python, machine learning model deployment,
+                        and real-time computer vision systems. I enjoy optimizing algorithms, designing clean APIs,
+                        and deploying models to production environments like AWS Lambda. Currently seeking opportunities
+                        where I can apply my skills in backend engineering, ML infrastructure, or full-stack development.
+                    </p>
                 </motion.div>
 
                 <div className="grid md:grid-cols-2 gap-8">
@@ -690,7 +687,7 @@ function AboutSection() {
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="bg-[#12121a] border border-white/5 rounded-2xl p-8"
                     >
                         <div className="flex items-center gap-3 mb-6">
@@ -716,18 +713,18 @@ function AboutSection() {
                         </div>
                     </motion.div>
 
-                    {/* Experience */}
+                    {/* Professional Training */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="bg-[#12121a] border border-white/5 rounded-2xl p-8"
                     >
                         <div className="flex items-center gap-3 mb-6">
                             <div className="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20">
                                 <Zap size={24} className="text-blue-400" />
                             </div>
-                            <h3 className="text-lg font-semibold text-white">Experience</h3>
+                            <h3 className="text-lg font-semibold text-white">Professional Training</h3>
                         </div>
                         <div className="space-y-2">
                             <p className="text-xl font-bold text-white">{EXPERIENCE.title}</p>
@@ -744,7 +741,7 @@ function AboutSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="mt-8 bg-[#12121a] border border-white/5 rounded-2xl p-8"
                 >
                     <h3 className="text-lg font-semibold text-white mb-6">Certifications</h3>
@@ -761,9 +758,9 @@ function AboutSection() {
     );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 // CONTACT SECTION
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 
 function ContactSection() {
     return (
@@ -772,7 +769,7 @@ function ContactSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="space-y-8"
                 >
                     <span className="text-emerald-400 font-mono text-sm">// Let's Connect</span>
@@ -809,16 +806,16 @@ function ContactSection() {
     );
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 // FOOTER
-// ═══════════════════════════════════════════════════════════════════════════
+// ------------------
 
 function Footer() {
     return (
         <footer className="py-8 border-t border-white/5">
             <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p className="text-gray-600 text-sm">
-                    Designed & Built by Surya Sasaank Yanamandra • © 2025
+                    Designed & Built by Surya Sasaank Yanamandra • © 2026
                 </p>
                 <div className="flex items-center gap-4">
                     <a href={PROFILE.github} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-white transition-colors">
