@@ -570,13 +570,13 @@ function ProjectCard({ project, index }) {
                 </p>
 
                 {/* Metrics */}
-                <div className="grid grid-cols-3 gap-4 pt-4">
+                <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4">
                     {project.metrics.map((metric, i) => (
-                        <div key={i} className={`text-center p-3 rounded-xl ${metric.highlight ? colors.bg : 'bg-white/5'}`}>
-                            <div className={`text-2xl font-bold ${metric.highlight ? colors.text : 'text-white'}`}>
-                                {metric.value}<span className="text-sm">{metric.unit}</span>
+                        <div key={i} className={`text-center p-2 sm:p-3 rounded-xl ${metric.highlight ? colors.bg : 'bg-white/5'} overflow-hidden`}>
+                            <div className={`text-lg sm:text-2xl font-bold ${metric.highlight ? colors.text : 'text-white'} truncate`}>
+                                {metric.value}<span className="text-xs sm:text-sm">{metric.unit}</span>
                             </div>
-                            <div className="text-xs text-gray-500 mt-1">{metric.label}</div>
+                            <div className="text-xs text-gray-500 mt-1 truncate">{metric.label}</div>
                         </div>
                     ))}
                 </div>
