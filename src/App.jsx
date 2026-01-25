@@ -535,7 +535,7 @@ function ProjectCard({ project, index }) {
                 <div className={`p-3 rounded-xl ${colors.bg} ${colors.border} border`}>
                     <Icon size={24} className={colors.text} />
                 </div>
-                <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="flex gap-2 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                     {project.github && (
                         <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2 hover:bg-white/5 rounded-lg text-gray-500 hover:text-white transition-colors">
                             <Github size={18} />
