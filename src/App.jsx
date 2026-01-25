@@ -354,6 +354,19 @@ function HeroSection() {
                         className="space-y-6 text-center lg:text-left"
                     >
                         <div className="space-y-4">
+                            {/* Mobile Profile Photo */}
+                            <div className="lg:hidden flex justify-center mb-6">
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 rounded-full blur-sm" />
+                                    <div className="relative w-32 h-32 rounded-full bg-[#12121a] p-1">
+                                        <img
+                                            src="/profile.jpeg"
+                                            alt="Surya Sasaank Yanamandra"
+                                            className="w-full h-full object-cover rounded-full"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
                                 <motion.span
                                     className="text-white inline-block"
@@ -475,7 +488,7 @@ function ProjectsSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className="text-center mb-20"
                 >
                     <span className="text-emerald-400 font-mono text-sm">// Featured Work</span>
@@ -513,7 +526,7 @@ function ProjectCard({ project, index }) {
         <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
             className={`group relative bg-[#12121a] border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-all duration-500 ${colors.glow} hover:shadow-2xl hover:-translate-y-2 h-full flex flex-col`}
         >
@@ -608,7 +621,7 @@ function SkillsSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className="text-center mb-20"
                 >
                     <span className="text-emerald-400 font-mono text-sm">// Technical Stack</span>
@@ -626,7 +639,7 @@ function SkillsSection() {
                                 key={cat.title}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: false }}
+                                viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
                                 className={`bg-[#12121a] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-all ${index === 4 ? 'md:col-span-2' : ''}`}
                             >
@@ -666,7 +679,7 @@ function AboutSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className="text-center mb-16"
                 >
                     <span className="text-emerald-400 font-mono text-sm">// Background</span>
@@ -687,7 +700,7 @@ function AboutSection() {
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                         className="bg-[#12121a] border border-white/5 rounded-2xl p-8"
                     >
                         <div className="flex items-center gap-3 mb-6">
@@ -717,7 +730,7 @@ function AboutSection() {
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                         className="bg-[#12121a] border border-white/5 rounded-2xl p-8"
                     >
                         <div className="flex items-center gap-3 mb-6">
@@ -741,7 +754,7 @@ function AboutSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className="mt-8 bg-[#12121a] border border-white/5 rounded-2xl p-8"
                 >
                     <h3 className="text-lg font-semibold text-white mb-6">Certifications</h3>
@@ -769,7 +782,7 @@ function ContactSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className="space-y-8"
                 >
                     <span className="text-emerald-400 font-mono text-sm">// Let's Connect</span>
