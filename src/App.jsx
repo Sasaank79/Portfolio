@@ -41,8 +41,8 @@ const PROJECTS = [
         id: 1,
         title: "Driving Narrator",
         subtitle: "Real-Time Traffic Sign Detection",
-        description: "OpenVINO INT8 quantization delivers 6× speedup over PyTorch. Producer-consumer pipeline decouples video decoding from inference, stabilizing latency at 40ms.",
-        impact: "Trained YOLOv11 Nano on LISA dataset (15,876 images, 47 classes).",
+        description: "Developed a low-latency edge AI system for real-time traffic sign detection using YOLOv11 and OpenVINO INT8 quantization. Achieved 14 FPS on CPU (6x speedup vs. PyTorch) by implementing a multi-threaded producer-consumer pipeline.",
+        impact: "Fine-tuned YOLOv11 Nano on the LISA dataset (15,876 images, 47 classes), achieving 97% mAP@0.5.",
         tags: ["Python", "YOLOv11", "OpenVINO", "OpenCV"],
         metrics: [
             { value: "14", unit: "FPS", label: "On CPU", highlight: true },
@@ -57,9 +57,9 @@ const PROJECTS = [
     {
         id: 2,
         title: "URL Shortener",
-        subtitle: "High-Scale Backend System",
-        description: "Base62 encoding maps DB IDs to 6-char short codes (56 billion unique URLs). Read-through Redis caching with 24h TTL for hot URLs.",
-        impact: "Clean architecture: Controller → Service → Repository.",
+        subtitle: "Distributed System",
+        description: "Designed a scalable, containerized URL shortening service built with Spring Boot and Redis, implementing a cache-aside architecture for sub-millisecond Redis lookups and CI/CD automation via GitHub Actions.",
+        impact: "Implemented read-through Redis caching with a 24-hour TTL policy for frequently accessed links.",
         tags: ["Java", "Spring Boot", "Redis", "PostgreSQL"],
         metrics: [
             { value: "56B", unit: "", label: "URL Capacity", highlight: true },
@@ -75,8 +75,8 @@ const PROJECTS = [
         id: 3,
         title: "Student Success Prediction",
         subtitle: "Serverless MLOps Pipeline",
-        description: "Stacking Ensemble (XGBoost + LightGBM + CatBoost → Logistic Regression) with SMOTE for class imbalance. Deployed to AWS Lambda via Docker.",
-        impact: "Frontend on GitHub Pages calls serverless API for real-time predictions.",
+        description: "Architected a serverless ML deployment pipeline on AWS Lambda to predict student dropout risk (0.77 F1), using a hyperparameter-tuned stacking ensemble (XGBoost, LightGBM, CatBoost → Logistic Regression), containerized with Docker and integrated with CI/CD automation.",
+        impact: "Achieved 77.5% Accuracy and 0.86 ROC-AUC, addressing class imbalance with SMOTE.",
         tags: ["FastAPI", "AWS Lambda", "Docker", "XGBoost"],
         metrics: [
             { value: "77.5%", unit: "", label: "Accuracy", highlight: true },
@@ -91,13 +91,13 @@ const PROJECTS = [
     {
         id: 4,
         title: "Inventory Management",
-        subtitle: "Full-Stack Production App",
-        description: "3NF schema for products, suppliers, and transactions. JWT auth, raw SQL analytics (low stock alerts, top sellers, stock value by category).",
-        impact: "96% test coverage across 35 automated tests. Auto-seeds 100+ SKUs on deploy.",
+        subtitle: "Full-Stack System",
+        description: "Engineered a production-style RESTful API with Flask and PostgreSQL, implementing a normalized 3NF schema, optimized SQL analytics queries, and CI/CD-enforced test coverage (96%).",
+        impact: "Achieved 96% test coverage with 35+ automated unit and integration tests using pytest.",
         tags: ["Flask", "PostgreSQL", "pytest", "Render"],
         metrics: [
             { value: "96%", unit: "", label: "Test Coverage", highlight: true },
-            { value: "35", unit: "", label: "Tests" },
+            { value: "35+", unit: "", label: "Tests" },
             { value: "Live", unit: "", label: "Demo" }
         ],
         icon: Database,
@@ -109,8 +109,8 @@ const PROJECTS = [
         id: 5,
         title: "Facial Emotion Recognition",
         subtitle: "Real-Time Deep Learning",
-        description: "EfficientNetV2-S trained on FER-2013 with Label Smoothing for class imbalance. MediaPipe replaces Haar Cascade for better face crops.",
-        impact: "10-frame rolling average smooths predictions. Runs at ~5 FPS on CPU.",
+        description: "Built a near real-time (5 FPS on CPU) facial emotion recognition system using PyTorch and EfficientNetV2, achieving 72.7% accuracy on FER-2013 with a stabilized rolling-average inference pipeline.",
+        impact: "Trained EfficientNetV2-S on FER-2013 with Label Smoothing, achieving 72.7% test accuracy.",
         tags: ["Python", "PyTorch", "OpenCV", "MediaPipe"],
         metrics: [
             { value: "72.7%", unit: "", label: "Accuracy", highlight: true },
@@ -125,19 +125,19 @@ const PROJECTS = [
 ];
 
 const SKILLS = {
-    languages: ["Python", "Java", "SQL", "C++", "JavaScript", "TypeScript"],
+    languages: ["Python", "Java", "SQL", "C++", "JavaScript"],
     backend: ["FastAPI", "Flask", "Spring Boot", "REST APIs"],
     frontend: ["React", "HTML", "CSS", "Tailwind"],
     mlLibraries: ["PyTorch", "OpenVINO", "OpenCV", "scikit-learn", "MediaPipe"],
-    toolsDevOps: ["Docker", "AWS Lambda", "AWS EC2", "Redis", "PostgreSQL", "Git", "CI/CD"]
+    toolsDevOps: ["Docker", "AWS Lambda", "AWS EC2", "Redis", "PostgreSQL", "Git", "GitHub Actions", "JUnit", "PyTest"]
 };
 
 const EXPERIENCE = {
-    title: "Journey to Employment Program",
+    title: "Journey 2 Employment Program",
     company: "Salesforce",
     type: "Professional Training",
-    highlight: "Top 10% of 500+ candidates",
-    description: "Selected top 10% (55/500+). Optimized Python/Java algorithms for time/space complexity and applied Agile methodologies in team code reviews."
+    highlight: "Top 15% of 360+ candidates",
+    description: "Selected in the top 15% (49/360+) of applicants for training on Data Structures and Code Optimization; applied Agile methodologies to refine algorithms for time and space complexity in peer reviews."
 };
 
 const EDUCATION = {
@@ -265,9 +265,8 @@ function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
                             href={PROFILE.resumeUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="ml-4 px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-sm font-medium transition-all flex items-center gap-2 group"
+                            className="ml-4 px-5 py-2.5 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500 rounded-lg text-sm font-medium text-emerald-400 transition-all flex items-center group"
                         >
-                            <Download size={16} className="text-emerald-400" />
                             Resume
                         </a>
                     </div>
@@ -309,7 +308,6 @@ function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
                                 onClick={() => setMobileMenuOpen(false)}
                                 className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 py-2 font-medium"
                             >
-                                <Download size={16} />
                                 Resume
                             </a>
                         </div>
