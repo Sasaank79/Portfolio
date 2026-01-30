@@ -28,8 +28,8 @@ import {
 
 const PROFILE = {
     name: "Surya Sasaank Yanamandra",
-    tagline: "Backend Developer | ML Engineer | AI Enthusiast | Software Engineer",
-    intro: "Computer Science graduate building efficient, scalable software. From 14 FPS real-time computer vision to REST APIs architected for 56 billion entries. I focus on performance and maintainability.",
+    tagline: "Computer Science Graduate · Building Real-World Software",
+    intro: "Backend-focused developer with experience building REST APIs and deploying machine learning systems. Strong in SQL, system optimization, and real-world project implementation.",
     email: "ysuryasasaank@gmail.com",
     github: "https://github.com/Sasaank79",
     linkedin: "https://www.linkedin.com/in/surya-sasaank-yanamandra/",
@@ -41,8 +41,8 @@ const PROJECTS = [
         id: 1,
         title: "Driving Narrator",
         subtitle: "Real-Time Traffic Sign Detection",
-        description: "OpenVINO INT8 quantization delivers 6× speedup over PyTorch. Producer-consumer pipeline decouples video decoding from inference, stabilizing latency at 40ms.",
-        impact: "Trained YOLOv11 Nano on LISA dataset (15,876 images, 47 classes).",
+        description: "Developed a low-latency edge AI system for real-time traffic sign detection using YOLOv11 and OpenVINO INT8 quantization. Achieved 14 FPS on CPU (6x speedup vs. PyTorch) by implementing a multi-threaded producer-consumer pipeline.",
+        impact: "Fine-tuned YOLOv11 Nano on the LISA dataset (15,876 images, 47 classes), achieving 97% mAP@0.5.",
         tags: ["Python", "YOLOv11", "OpenVINO", "OpenCV"],
         metrics: [
             { value: "14", unit: "FPS", label: "On CPU", highlight: true },
@@ -57,9 +57,9 @@ const PROJECTS = [
     {
         id: 2,
         title: "URL Shortener",
-        subtitle: "High-Scale Backend System",
-        description: "Base62 encoding maps DB IDs to 6-char short codes (56 billion unique URLs). Read-through Redis caching with 24h TTL for hot URLs.",
-        impact: "Clean architecture: Controller → Service → Repository.",
+        subtitle: "Distributed System",
+        description: "Designed a scalable, containerized URL shortening service built with Spring Boot and Redis, implementing a cache-aside architecture for sub-millisecond Redis lookups and CI/CD automation via GitHub Actions.",
+        impact: "Implemented read-through Redis caching with a 24-hour TTL policy for frequently accessed links.",
         tags: ["Java", "Spring Boot", "Redis", "PostgreSQL"],
         metrics: [
             { value: "56B", unit: "", label: "URL Capacity", highlight: true },
@@ -75,8 +75,8 @@ const PROJECTS = [
         id: 3,
         title: "Student Success Prediction",
         subtitle: "Serverless MLOps Pipeline",
-        description: "Stacking Ensemble (XGBoost + LightGBM + CatBoost → Logistic Regression) with SMOTE for class imbalance. Deployed to AWS Lambda via Docker.",
-        impact: "Frontend on GitHub Pages calls serverless API for real-time predictions.",
+        description: "Architected a serverless ML deployment pipeline on AWS Lambda to predict student dropout risk (0.77 F1), using a hyperparameter-tuned stacking ensemble (XGBoost, LightGBM, CatBoost → Logistic Regression), containerized with Docker and integrated with CI/CD automation.",
+        impact: "Achieved 77.5% Accuracy and 0.86 ROC-AUC, addressing class imbalance with SMOTE.",
         tags: ["FastAPI", "AWS Lambda", "Docker", "XGBoost"],
         metrics: [
             { value: "77.5%", unit: "", label: "Accuracy", highlight: true },
@@ -91,13 +91,13 @@ const PROJECTS = [
     {
         id: 4,
         title: "Inventory Management",
-        subtitle: "Full-Stack Production App",
-        description: "3NF schema for products, suppliers, and transactions. JWT auth, raw SQL analytics (low stock alerts, top sellers, stock value by category).",
-        impact: "96% test coverage across 35 automated tests. Auto-seeds 100+ SKUs on deploy.",
+        subtitle: "Full-Stack System",
+        description: "Built to practice production patterns end-to-end — a REST API with normalized 3NF schema, JWT auth, and SQL analytics (stock alerts, top sellers, category breakdowns). CI/CD pipeline enforces 96% test coverage before every deploy.",
+        impact: "Key learning: writing tests first caught schema bugs early. 35+ automated tests across unit and integration layers using pytest.",
         tags: ["Flask", "PostgreSQL", "pytest", "Render"],
         metrics: [
             { value: "96%", unit: "", label: "Test Coverage", highlight: true },
-            { value: "35", unit: "", label: "Tests" },
+            { value: "35+", unit: "", label: "Tests" },
             { value: "Live", unit: "", label: "Demo" }
         ],
         icon: Database,
@@ -109,8 +109,8 @@ const PROJECTS = [
         id: 5,
         title: "Facial Emotion Recognition",
         subtitle: "Real-Time Deep Learning",
-        description: "EfficientNetV2-S trained on FER-2013 with Label Smoothing for class imbalance. MediaPipe replaces Haar Cascade for better face crops.",
-        impact: "10-frame rolling average smooths predictions. Runs at ~5 FPS on CPU.",
+        description: "Built a near real-time (5 FPS on CPU) facial emotion recognition system using PyTorch and EfficientNetV2, achieving 72.7% accuracy on FER-2013 with a stabilized rolling-average inference pipeline.",
+        impact: "Trained EfficientNetV2-S on FER-2013 with Label Smoothing, achieving 72.7% test accuracy.",
         tags: ["Python", "PyTorch", "OpenCV", "MediaPipe"],
         metrics: [
             { value: "72.7%", unit: "", label: "Accuracy", highlight: true },
@@ -125,19 +125,19 @@ const PROJECTS = [
 ];
 
 const SKILLS = {
-    languages: ["Python", "Java", "SQL", "C++", "JavaScript", "TypeScript"],
+    languages: ["Python", "Java", "SQL", "C++", "JavaScript"],
     backend: ["FastAPI", "Flask", "Spring Boot", "REST APIs"],
     frontend: ["React", "HTML", "CSS", "Tailwind"],
     mlLibraries: ["PyTorch", "OpenVINO", "OpenCV", "scikit-learn", "MediaPipe"],
-    toolsDevOps: ["Docker", "AWS Lambda", "AWS EC2", "Redis", "PostgreSQL", "Git", "CI/CD"]
+    toolsDevOps: ["Docker", "AWS Lambda", "AWS EC2", "Redis", "PostgreSQL", "Git", "GitHub Actions", "JUnit", "PyTest"]
 };
 
 const EXPERIENCE = {
-    title: "Journey to Employment Program",
+    title: "Journey 2 Employment Program",
     company: "Salesforce",
     type: "Professional Training",
-    highlight: "Top 10% of 500+ candidates",
-    description: "Selected top 10% (55/500+). Optimized Python/Java algorithms for time/space complexity and applied Agile methodologies in team code reviews."
+    highlight: "Top 15% of 360+ candidates",
+    description: "Selected in the top 15% (49/360+) of applicants for training on Data Structures and Code Optimization; applied Agile methodologies to refine algorithms for time and space complexity in peer reviews."
 };
 
 const EDUCATION = {
@@ -147,6 +147,12 @@ const EDUCATION = {
     gpa: "7.61 / 10",
     courses: ["Machine Learning", "AI Tools", "Data Structures", "DBMS", "OOP"]
 };
+
+const KEY_STRENGTHS = [
+    { label: "Backend API Development", detail: "Spring Boot, Flask, FastAPI" },
+    { label: "Database Design & SQL Optimization", detail: "PostgreSQL, Redis, 3NF" },
+    { label: "ML Model Deployment", detail: "AWS Lambda, OpenVINO, Docker" }
+];
 
 // ------------------
 // COMPONENTS
@@ -199,6 +205,7 @@ export default function Portfolio() {
                 <div className="bg-blob bg-blob-2" />
 
                 <HeroSection />
+                <StrengthsSection />
                 <AboutSection />
                 <ProjectsSection />
                 <SkillsSection />
@@ -265,9 +272,8 @@ function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
                             href={PROFILE.resumeUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="ml-4 px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-sm font-medium transition-all flex items-center gap-2 group"
+                            className="ml-4 px-5 py-2.5 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500 rounded-lg text-sm font-medium text-emerald-400 transition-all flex items-center group"
                         >
-                            <Download size={16} className="text-emerald-400" />
                             Resume
                         </a>
                     </div>
@@ -309,7 +315,6 @@ function Navbar({ activeSection, mobileMenuOpen, setMobileMenuOpen }) {
                                 onClick={() => setMobileMenuOpen(false)}
                                 className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 py-2 font-medium"
                             >
-                                <Download size={16} />
                                 Resume
                             </a>
                         </div>
@@ -345,28 +350,14 @@ function HeroSection() {
     return (
         <section id="hero" className="min-h-screen flex items-center pt-20">
             <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 w-full">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Left: Content */}
+                <div className="max-w-3xl">
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="space-y-6 text-center lg:text-left"
                     >
                         <div className="space-y-4">
-                            {/* Mobile Profile Photo */}
-                            <div className="lg:hidden flex justify-center mb-6">
-                                <div className="relative">
-                                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 rounded-full blur-sm" />
-                                    <div className="relative w-32 h-32 rounded-full bg-[#12121a] p-1">
-                                        <img
-                                            src="/profile.jpeg"
-                                            alt="Surya Sasaank Yanamandra"
-                                            className="w-full h-full object-cover rounded-full"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
                             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
                                 <motion.span
                                     className="text-white inline-block"
@@ -436,27 +427,6 @@ function HeroSection() {
                         </motion.div>
                     </motion.div>
 
-                    {/* Right: Photo */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className="hidden lg:flex justify-center"
-                    >
-                        <div className="relative">
-                            {/* Gradient border ring */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 rounded-full blur-sm" />
-                            <div className="relative w-72 h-72 rounded-full bg-[#12121a] p-1">
-                                <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center overflow-hidden">
-                                    <img
-                                        src="/profile.jpeg"
-                                        alt="Surya Sasaank Yanamandra"
-                                        className="w-full h-full object-cover rounded-full"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
                 </div>
             </div>
         </section>
@@ -473,6 +443,34 @@ function SocialButton({ href, icon }) {
         >
             {icon}
         </a>
+    );
+}
+
+// ------------------
+// KEY STRENGTHS SECTION
+// ------------------
+
+function StrengthsSection() {
+    return (
+        <section className="py-16">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                <div className="grid sm:grid-cols-3 gap-6">
+                    {KEY_STRENGTHS.map((strength, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className="text-center p-6 bg-[#12121a] border border-white/5 rounded-xl"
+                        >
+                            <h3 className="text-white font-semibold text-sm">{strength.label}</h3>
+                            <p className="text-gray-500 text-xs mt-1 font-mono">{strength.detail}</p>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
     );
 }
 
