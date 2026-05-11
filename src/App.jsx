@@ -23,13 +23,13 @@ import {
 
 // ------------------
 // SURYA SASAANK YANAMANDRA - PORTFOLIO
-// Backend Engineer & AI Systems Developer
+// Computer Science Graduate, 2025
 // ------------------
 
 const PROFILE = {
     name: "Surya Sasaank Yanamandra",
-    tagline: "Computer Science Graduate · Building Real-World Software",
-    intro: "Backend-focused developer with experience building REST APIs and deploying machine learning systems. Strong in SQL, system optimization, and real-world project implementation.",
+    tagline: "Computer Science Graduate · Class of 2025",
+    intro: "Computer Science Graduate with experience in backend development and machine learning applications. Skilled in building RESTful APIs using Java and Python, and working with relational databases and caching systems. Strong foundation in SQL, problem-solving, and practical software development.",
     email: "ysuryasasaank@gmail.com",
     github: "https://github.com/Sasaank79",
     linkedin: "https://www.linkedin.com/in/surya-sasaank-yanamandra/",
@@ -39,31 +39,13 @@ const PROFILE = {
 const PROJECTS = [
     {
         id: 1,
-        title: "Driving Narrator",
-        subtitle: "Real-Time Traffic Sign Detection",
-        description: "Developed a low-latency edge AI system for real-time traffic sign detection using YOLOv11 and OpenVINO INT8 quantization. Achieved 14 FPS on CPU (6x speedup vs. PyTorch) by implementing a multi-threaded producer-consumer pipeline.",
-        impact: "Fine-tuned YOLOv11 Nano on the LISA dataset (15,876 images, 47 classes), achieving 97% mAP@0.5.",
-        tags: ["Python", "YOLOv11", "OpenVINO", "OpenCV"],
-        metrics: [
-            { value: "14", unit: "FPS", label: "On CPU", highlight: true },
-            { value: "97%", unit: "", label: "mAP@0.5" },
-            { value: "6×", unit: "", label: "Speedup" }
-        ],
-        icon: Cpu,
-        color: "emerald",
-        github: "https://github.com/Sasaank79/Driving-Narrator-Legacy-Edge",
-        demo: null
-    },
-    {
-        id: 2,
         title: "URL Shortener",
-        subtitle: "Distributed System",
-        description: "Designed a scalable, containerized URL shortening service built with Spring Boot and Redis, implementing a cache-aside architecture for sub-millisecond Redis lookups and CI/CD automation via GitHub Actions.",
-        impact: "Implemented read-through Redis caching with a 24-hour TTL policy for frequently accessed links.",
-        tags: ["Java", "Spring Boot", "Redis", "PostgreSQL"],
+        subtitle: "Backend System Design",
+        description: "Developed a URL shortening service using Java, PostgreSQL, and Redis. Generates 6-character Base62 short codes supporting 56+ billion unique URLs. Integrated Redis cache-aside caching with 24-hour TTL for sub-millisecond redirect lookups. Implements HTTP 302 redirection with atomic click-tracking and CI/CD via GitHub Actions.",
+        tags: ["Java", "PostgreSQL", "Redis", "Docker"],
         metrics: [
-            { value: "56B", unit: "", label: "URL Capacity", highlight: true },
-            { value: "<1", unit: "ms", label: "Latency" },
+            { value: "56B+", unit: "", label: "URL Capacity", highlight: true },
+            { value: "<1", unit: "ms", label: "Cache Latency" },
             { value: "24h", unit: "", label: "Cache TTL" }
         ],
         icon: Server,
@@ -72,12 +54,43 @@ const PROJECTS = [
         demo: null
     },
     {
+        id: 2,
+        title: "Inventory Management",
+        subtitle: "Full-Stack REST API",
+        description: "Built a production-ready RESTful inventory management API with Flask and PostgreSQL, featuring a normalized 3NF schema across 4 relational tables, JWT-based authentication, and 20+ API endpoints. Includes SQL analytics for low-stock alerts, top-selling reports, and category breakdowns with indexed lookups.",
+        tags: ["Flask", "PostgreSQL", "JWT", "SQL"],
+        metrics: [
+            { value: "96%", unit: "", label: "Test Coverage", highlight: true },
+            { value: "35+", unit: "", label: "Automated Tests" },
+            { value: "Live", unit: "", label: "Demo" }
+        ],
+        icon: Database,
+        color: "amber",
+        github: "https://github.com/Sasaank79/Inventory-Management-System",
+        demo: "https://inventory-management-ylmu.onrender.com"
+    },
+    {
         id: 3,
+        title: "Phishing Link Detection",
+        subtitle: "ML Classification System",
+        description: "Engineered URL-based lexical and domain-level features including URL length, special characters, and domain age. Trained a stacking ensemble combining Random Forest, XGBoost, and SVM classifiers, applying SMOTE oversampling to handle class imbalance. Integrated whitelist/blacklist validation with deployment-ready preprocessing pipelines.",
+        tags: ["Python", "scikit-learn", "XGBoost", "Random Forest"],
+        metrics: [
+            { value: "94%", unit: "", label: "Accuracy", highlight: true },
+            { value: "91%", unit: "", label: "Precision" },
+            { value: "3", unit: "", label: "Model Ensemble" }
+        ],
+        icon: Zap,
+        color: "rose",
+        github: "https://github.com/Sasaank79/Phishing-Link-Detection",
+        demo: null
+    },
+    {
+        id: 4,
         title: "Student Success Prediction",
-        subtitle: "Serverless MLOps Pipeline",
-        description: "Architected a serverless ML deployment pipeline on AWS Lambda to predict student dropout risk (0.77 F1), using a hyperparameter-tuned stacking ensemble (XGBoost, LightGBM, CatBoost → Logistic Regression), containerized with Docker and integrated with CI/CD automation.",
-        impact: "Achieved 77.5% Accuracy and 0.86 ROC-AUC, addressing class imbalance with SMOTE.",
-        tags: ["FastAPI", "AWS Lambda", "Docker", "XGBoost"],
+        subtitle: "Serverless ML Pipeline",
+        description: "Developed a serverless ML inference pipeline using AWS Lambda, Docker, and AWS ECR to predict student academic outcomes on 4,424 records with 44 engineered features. Built a 4-model stacking ensemble (XGBoost, LightGBM, CatBoost → Logistic Regression) achieving 0.77 weighted F1-score on multiclass predictions.",
+        tags: ["AWS Lambda", "Docker", "XGBoost", "LightGBM"],
         metrics: [
             { value: "77.5%", unit: "", label: "Accuracy", highlight: true },
             { value: "0.77", unit: "", label: "F1 Score" },
@@ -89,28 +102,26 @@ const PROJECTS = [
         demo: "https://sasaank79.github.io/Serverless-Student-Success-Prediction-System/"
     },
     {
-        id: 4,
-        title: "Inventory Management",
-        subtitle: "Full-Stack System",
-        description: "Built to practice production patterns end-to-end — a REST API with normalized 3NF schema, JWT auth, and SQL analytics (stock alerts, top sellers, category breakdowns). CI/CD pipeline enforces 96% test coverage before every deploy.",
-        impact: "Key learning: writing tests first caught schema bugs early. 35+ automated tests across unit and integration layers using pytest.",
-        tags: ["Flask", "PostgreSQL", "pytest", "Render"],
+        id: 5,
+        title: "Driving Narrator",
+        subtitle: "Real-Time Edge AI",
+        description: "Engineered a CPU-optimized real-time traffic sign detection pipeline achieving 14 FPS on a 2015 MacBook CPU (6× speedup) and 89 FPS on T4 GPU. Migrated from PyTorch to OpenVINO INT8 quantization, reducing model size 38% (5.2→3.2 MB). Multi-threaded producer-consumer architecture decouples video I/O from inference.",
+        tags: ["Python", "YOLOv11", "OpenVINO", "OpenCV"],
         metrics: [
-            { value: "96%", unit: "", label: "Test Coverage", highlight: true },
-            { value: "35+", unit: "", label: "Tests" },
-            { value: "Live", unit: "", label: "Demo" }
+            { value: "14", unit: "FPS", label: "On CPU", highlight: true },
+            { value: "97%", unit: "", label: "mAP@0.5" },
+            { value: "3.2", unit: "MB", label: "Model Size" }
         ],
-        icon: Database,
-        color: "amber",
-        github: "https://github.com/Sasaank79/Inventory-Management-System",
-        demo: "https://inventory-management-ylmu.onrender.com"
+        icon: Cpu,
+        color: "emerald",
+        github: "https://github.com/Sasaank79/Driving-Narrator-Legacy-Edge",
+        demo: null
     },
     {
-        id: 5,
+        id: 6,
         title: "Facial Emotion Recognition",
         subtitle: "Real-Time Deep Learning",
-        description: "Built a near real-time (5 FPS on CPU) facial emotion recognition system using PyTorch and EfficientNetV2, achieving 72.7% accuracy on FER-2013 with a stabilized rolling-average inference pipeline.",
-        impact: "Trained EfficientNetV2-S on FER-2013 with Label Smoothing, achieving 72.7% test accuracy.",
+        description: "Built a real-time facial emotion recognition system using PyTorch and EfficientNetV2-S, trained on FER-2013 with Label Smoothing and EMA weights. Switched from Haar Cascade to MediaPipe for reliable face detection and added a 10-frame rolling average for stable predictions at ~5 FPS on CPU.",
         tags: ["Python", "PyTorch", "OpenCV", "MediaPipe"],
         metrics: [
             { value: "72.7%", unit: "", label: "Accuracy", highlight: true },
@@ -118,18 +129,16 @@ const PROJECTS = [
             { value: "5", unit: "FPS", label: "CPU" }
         ],
         icon: Cpu,
-        color: "rose",
+        color: "emerald",
         github: "https://github.com/Sasaank79/Facial-Emotion-Recognition",
         demo: null
     }
 ];
 
 const SKILLS = {
-    languages: ["Python", "Java", "SQL", "C++", "JavaScript"],
-    backend: ["FastAPI", "Flask", "Spring Boot", "REST APIs"],
-    frontend: ["React", "HTML", "CSS", "Tailwind"],
-    mlLibraries: ["PyTorch", "OpenVINO", "OpenCV", "scikit-learn", "MediaPipe"],
-    toolsDevOps: ["Docker", "AWS Lambda", "AWS EC2", "Redis", "PostgreSQL", "Git", "GitHub Actions", "JUnit", "PyTest"]
+    programmingFrameworks: ["Java", "Python", "SQL", "Flask", "scikit-learn", "REST APIs"],
+    databasesCloud: ["PostgreSQL", "Redis", "AWS Lambda"],
+    coreConceptsTools: ["Data Structures & Algorithms", "OOP", "DBMS", "Operating Systems", "Git", "Machine Learning"]
 };
 
 const EXPERIENCE = {
@@ -145,13 +154,13 @@ const EDUCATION = {
     school: "MVGR College of Engineering",
     year: "2021 - 2025",
     gpa: "7.61 / 10",
-    courses: ["Machine Learning", "AI Tools", "Data Structures", "DBMS", "OOP"]
+    courses: ["Data Structures & Algorithms", "OOP", "DBMS", "Operating Systems", "Computer Networks"]
 };
 
 const KEY_STRENGTHS = [
-    { label: "Backend API Development", detail: "Spring Boot, Flask, FastAPI" },
-    { label: "Database Design & SQL Optimization", detail: "PostgreSQL, Redis, 3NF" },
-    { label: "ML Model Deployment", detail: "AWS Lambda, OpenVINO, Docker" }
+    { label: "Backend API Development", detail: "Java, Flask, REST APIs" },
+    { label: "Database Design & SQL", detail: "PostgreSQL, Redis" },
+    { label: "Machine Learning", detail: "scikit-learn, AWS Lambda" }
 ];
 
 // ------------------
@@ -350,12 +359,12 @@ function HeroSection() {
     return (
         <section id="hero" className="min-h-screen flex items-center pt-20">
             <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 w-full">
-                <div className="max-w-3xl">
+                <div className="max-w-4xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="space-y-6 text-center lg:text-left"
+                        className="space-y-6 text-center"
                     >
                         <div className="space-y-4">
                             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
@@ -400,7 +409,7 @@ function HeroSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="text-lg text-gray-500 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                            className="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto"
                         >
                             {PROFILE.intro}
                         </motion.p>
@@ -409,7 +418,7 @@ function HeroSection() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
-                            className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4"
+                            className="flex flex-wrap justify-center gap-4 pt-4"
                         >
                             <a
                                 href="#projects"
@@ -598,11 +607,9 @@ function ProjectCard({ project, index }) {
 
 function SkillsSection() {
     const categories = [
-        { title: "Languages", items: SKILLS.languages, icon: Code2, color: "emerald" },
-        { title: "Backend", items: SKILLS.backend, icon: Server, color: "blue" },
-        { title: "Frontend", items: SKILLS.frontend, icon: Layers, color: "cyan" },
-        { title: "ML/AI Libraries", items: SKILLS.mlLibraries, icon: Cpu, color: "amber" },
-        { title: "Tools & DevOps", items: SKILLS.toolsDevOps, icon: Terminal, color: "violet" }
+        { title: "Programming & Frameworks", items: SKILLS.programmingFrameworks, icon: Code2, color: "emerald" },
+        { title: "Databases & Cloud", items: SKILLS.databasesCloud, icon: Database, color: "blue" },
+        { title: "Core Concepts & Tools", items: SKILLS.coreConceptsTools, icon: Terminal, color: "violet" }
     ];
 
     const colorClasses = {
@@ -628,7 +635,7 @@ function SkillsSection() {
                     </h2>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-3 gap-6">
                     {categories.map((cat, index) => {
                         const Icon = cat.icon;
                         const colors = colorClasses[cat.color];
@@ -639,7 +646,7 @@ function SkillsSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className={`bg-[#12121a] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-all ${index === 4 ? 'md:col-span-2' : ''}`}
+                                className="bg-[#12121a] border border-white/5 rounded-2xl p-6 hover:border-white/10 transition-all"
                             >
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className={`p-2 rounded-lg ${colors.bg}`}>
@@ -685,11 +692,11 @@ function AboutSection() {
                         About Me
                     </h2>
                     <p className="text-gray-400 mt-6 max-w-3xl mx-auto text-lg leading-relaxed">
-                        I am a Computer Science graduate passionate about building software that performs well at scale.
-                        My experience spans backend development with Java and Python, machine learning model deployment,
-                        and real-time computer vision systems. I enjoy optimizing algorithms, designing clean APIs,
-                        and deploying models to production environments like AWS Lambda. Currently seeking opportunities
-                        where I can apply my skills in backend engineering, ML infrastructure, or full-stack development.
+                        I am a Computer Science graduate with experience in backend development and machine learning applications.
+                        I've built RESTful APIs using Java and Python, worked with relational databases like PostgreSQL, and
+                        deployed ML models to cloud environments including AWS Lambda. I enjoy working on SQL optimization,
+                        clean API design, and solving real-world problems through software. Currently seeking opportunities
+                        where I can apply my skills in backend engineering or software development.
                     </p>
                 </motion.div>
 
@@ -757,7 +764,7 @@ function AboutSection() {
                 >
                     <h3 className="text-lg font-semibold text-white mb-6">Certifications</h3>
                     <div className="flex flex-wrap gap-4">
-                        {["PCAP (Python)", "NPTEL Cloud Computing", "Cisco Cybersecurity", "Cisco Linux Essentials", "IELTS Band 7.5"].map((cert) => (
+                        {["PCAP (Python)", "NPTEL Cloud Computing", "Cisco CyberSecurity Essentials", "Cisco Linux Essentials", "ML Specialization (DeepLearning.AI)"].map((cert) => (
                             <span key={cert} className="px-4 py-2 bg-white/5 border border-white/10 text-gray-300 rounded-lg text-sm">
                                 {cert}
                             </span>
